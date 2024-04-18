@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Chat Page
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/chat.css")
+    script(src="/script/chatscript.js",defer)
+  body
+    header
+      h1 #{user}
+    main
+      .chat-container
+        .message.right
+          .message-content
+            p Hello there!
+            span.message-time 10:00 AM
+        .message.right
+          .message-content
+            p Hey! How are you?
+            span.message-time 10:05 AM
+        .message.left
+          .message-content
+            p Hello there!
+            span.message-time 10:00 AM
+        .message.left
+          .message-content
+            p Hey! How are you?
+            span.message-time 10:05 AM
+        each chat in chats
+          - var isLeft = (chat.user.name != user)
+          .message(class=isLeft ? 'left' : 'right')
+            .message-content
+              small.chatuser #{chat.user.name}
+              p #{chat.text}
+              span.message-time #{chat.date}
+    footer
+      form(action=(cururl) method="POST")
+        input(type="text" placeholder="Type your message..." name="text" required)
+        button(type="submit") Send

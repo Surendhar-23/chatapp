@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Signup
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/login.css")
+  body 
+    section.section
+      main.main-container 
+        form(action="/signup" method="POST") 
+          div.inputfield
+            input(type="text" name="name" required placeholder="Name")
+          div.inputfield
+            input(type="text" name="email" required placeholder="EmailId")
+          div.inputfield
+            input(type="text" name="pass" required placeholder="Password")
+          div.inputfield
+            input(type="text" name="confpass" required placeholder="Confirm Password")
+          div.btn
+            input(type="submit", value="Signup")
+          if success 
+            p.info.success #{success}
+          if error 
+            p.info.error #{error}
+          a.switchlog(href="/login") already have an accouct? 
+
+
+

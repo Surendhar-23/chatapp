@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Login
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/login.css")
+  body 
+    section.section
+      main.main-container 
+        form(action="/login" method="POST") 
+          div.inputfield
+            input(type="text" name="email" required placeholder="EmailId")
+          div.inputfield
+            input(type="text" name="pass" required placeholder="Password")
+          div.btn
+            input(type="submit", value="login")
+            if success 
+              p.info.success #{success}
+            if error 
+              p.info.error #{error}
+          a.switchlog(href="/signup") i don't have an accouct? 
+
+
